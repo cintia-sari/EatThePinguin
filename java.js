@@ -17,7 +17,7 @@ let leftPressed = false; // pingvin mozgatás ,jobb oldali gombnyomás. Az alap�
 // 1.3 halacska adatok
 let fishSizeX =100; // hal méret az x tengelyen
 let fishSizeY = 70;// hal méret az y tengelyen
-let fishX = 0; // képernyőn hol helyzekedjen el az x tengelyen méret max 900;
+let fishX = Math.random()*900; // képernyőn hol helyzekedjen el az x tengelyen méret max 900;
 let fishY =0; //// képernyőn hol helyzekedjen el az y tengelyen méret max 1190 min-60;
 
 let fx = 0; // hal mozgása az x tengelyen
@@ -101,14 +101,16 @@ function keyUpHandler(event){
     leftPressed = false;
   };
 };
-
+let fis = new drawFish();
 
 // Pingvin mozgatás
 
  function draw(){
   context.clearRect(0, 0, canvas.width, canvas.height); // ettől nem mosódik el a pingvin miközbe megy.
   drawPinguinL();
-  drawFish();
+ 
+  new drawFish
+  
 
   fishX += fx;
   fishY -= fy;
