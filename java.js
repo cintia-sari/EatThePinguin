@@ -14,6 +14,15 @@ let pinguinX = ((canvasWidth+250 )/2); // pinvin kiindulási pontja
 let rightPressed = false ; // pingvin mozgatás ,jobb oldali gombnyomás
 let leftPressed = false; // pingvin mozgatás ,jobb oldali gombnyomás. Az alapértelmezett érték mindkettőnél azért van, falsemert az elején nem nyomják meg a vezérlőgombokat.
 
+// 1.3 halacska adatok
+let fishSizeX =100; // hal méret az x tengelyen
+let fishSizeY = 70;// hal méret az y tengelyen
+let fishX = 0; // képernyőn hol helyzekedjen el az x tengelyen méret max 900;
+let fishY =0; //// képernyőn hol helyzekedjen el az y tengelyen méret max 1190 min-60;
+
+let fx = 0; // hal mozgása az x tengelyen
+let fy = -2; // hal mozgása az y tengelyen
+
 // pingvin adatok:
 
 // 2. Pingvin alap adatok
@@ -43,6 +52,8 @@ var pingvin =new pinguin(400,1000);
 pingvin.drawLfet();
 pingvin.drawLRight();  */
 
+// pingvin megrajzolás
+
 function drawPinguinR (){
   let base_image = new Image();
   base_image.src = "./picture/rightPinguin.png";
@@ -50,11 +61,20 @@ function drawPinguinR (){
 
 };
 
-function drawPinguinL(){
+function drawPinguinL(){ //itt még hozzá kell adnom a HTMl-hez
   let base_image = new Image();
   base_image.src = "./picture/leftPinguin.png";
    context.drawImage(base_image, pinguinX, 1000,200,160);
 }
+
+
+// Hal rajzolás
+
+function drawFish(){ //itt még hozzá kell adnom a HTMl-hez
+  let fish_image = new Image();
+  fish_image.src = "./picture/fish.png";
+   context.drawImage(fish_image, fishX, fishY,fishSizeX,fishSizeY);
+};
 
 
 
@@ -86,13 +106,19 @@ function keyUpHandler(event){
 // Pingvin mozgatás
 
  function draw(){
+  context.clearRect(0, 0, canvas.width, canvas.height); // ettől nem mosódik el a pingvin miközbe megy.
   drawPinguinL();
+  drawFish();
+
+  fishX += fx;
+  fishY -= fy;
+
 
       if (rightPressed) {
-        pinguinX += 7 ;
+        pinguinX = Math.min( pinguinX+7,canvasWidth+300);
         console.log("léptem jobbra")
       } else if (leftPressed){
-        pinguinX -= 7;
+        pinguinX = Math.max( pinguinX-7, 0);
         console.log("léptem balra")
       };
  };
