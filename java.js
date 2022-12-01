@@ -10,11 +10,16 @@ canvas.setAttribute("height", "1200"),
 let canvasWidth = 500 ; //jétkterület szélessége
 
 // 1.2 Pinvin 
+let pinguinSizeX=200;
+let pinguinSizeY=160;
+let pinguinY = 800;
 let pinguinX = ((canvasWidth+250 )/2); // pinvin kiindulási pontja
 let rightPressed = false ; // pingvin mozgatás ,jobb oldali gombnyomás
 let leftPressed = false; // pingvin mozgatás ,jobb oldali gombnyomás. Az alapértelmezett érték mindkettőnél azért van, falsemert az elején nem nyomják meg a vezérlőgombokat.
+let pingvinO = (canvas.width-pinguinSizeX)/2;
 
 // 1.3 halacska adatok
+let fishRadius=70;
 let fishSizeX =100; // hal méret az x tengelyen
 let fishSizeY = 70;// hal méret az y tengelyen
 let fishX = Math.random()*900; // képernyőn hol helyzekedjen el az x tengelyen méret max 900;
@@ -57,14 +62,14 @@ pingvin.drawLRight();  */
 function drawPinguinR (){
   let base_image = new Image();
   base_image.src = "./picture/rightPinguin.png";
-   context.drawImage(base_image, pinguinX, 800,1000,1000);
+   context.drawImage(base_image, pinguinX, pinguinY,1000,1000);
 
 };
 
 function drawPinguinL(){ //itt még hozzá kell adnom a HTMl-hez
   let base_image = new Image();
   base_image.src = "./picture/leftPinguin.png";
-   context.drawImage(base_image, pinguinX, 1000,200,160);
+   context.drawImage(base_image, pinguinX, 1000,pinguinSizeX,pinguinSizeY);
 }
 
 
@@ -76,6 +81,11 @@ function drawFish(){ //itt még hozzá kell adnom a HTMl-hez
    context.drawImage(fish_image, fishX, fishY,fishSizeX,fishSizeY);
 };
 
+function drawFish2(){ //itt még hozzá kell adnom a HTMl-hez
+  let fish_image2 = new Image();
+  fish_image2.src = "./picture/2fish.png";
+   context.drawImage(fish_image2, 100, 1100,fishSizeX,fishSizeY);
+};
 
 
 
@@ -101,31 +111,48 @@ function keyUpHandler(event){
     leftPressed = false;
   };
 };
-let fis = new drawFish();
 
 // Pingvin mozgatás
 
  function draw(){
   context.clearRect(0, 0, canvas.width, canvas.height); // ettől nem mosódik el a pingvin miközbe megy.
   drawPinguinL();
- 
-  new drawFish
-  
+  drawFish();
 
   fishX += fx;
   fishY -= fy;
+ 
 
 
       if (rightPressed) {
         pinguinX = Math.min( pinguinX+7,canvasWidth+300);
-        console.log("léptem jobbra")
       } else if (leftPressed){
         pinguinX = Math.max( pinguinX-7, 0);
-        console.log("léptem balra")
       };
+
+
+
+console.log(fishY + fy > canvas.height-fishRadius);
+console.log(fishX < pingvinO + pinguinSizeX);
+ 
+ 
+ 
+     if(fishY + fy > canvas.height-fishRadius) {
+        if(fishX > pingvinO && fishX < pingvinO + pinguinSizeX) {
+            fy = -fy;
+        }
+        else {
+            alert("GAME OVER");
+            document.location.reload();
+            clearInterval(interval); // Needed for Chrome to end game
+        }
+    }
+      
  };
 
-setInterval(draw, 10);
+
+
+const interval = setInterval(draw, 10);
 
 
 
