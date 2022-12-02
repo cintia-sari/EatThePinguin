@@ -98,13 +98,15 @@ function keyUpHandler(event){
       };
 
 
-// teszteléshez hogy megnézzem hogy válgozik az x és y tengely adatai:
-console.log("x :   "+Math.sqrt( Math.pow((pinguinX-fishY),2)));
-console.log("Y :   "+Math.sqrt(Math.pow( (pinguinY-fishY),2)));
 
-// a függvény amivel az alkapást tudom vizsgálni
-      if(Math.sqrt( Math.pow((pinguinX-fishX),2) +  Math.pow( (pinguinY-fishY),2) ) < 45){
+
+
+ // elkapta / nem kapta el vizsgálása: 
+ 
+      if(( (fishX-pinguinX) < (pinguinSizeX/2)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) && ((fishY-120) === pinguinY)){
         console.log("elkapta")
+      }else if (fishY===1200){
+      console.log("vége")
       }
  };
 
