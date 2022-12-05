@@ -28,6 +28,9 @@ let fishY =0; //// képernyőn hol helyzekedjen el az y tengelyen méret max 119
 let fx = 0; // hal mozgása az x tengelyen kiinduló pont
 let fy = -2; // hal mozgása az y tengelyen kiinduló pont
 
+
+// 1.4 eredmény
+let score=0;
 // 2. elemek megrajzolása
 
 // 2.1 pingvin megrajzolás
@@ -80,12 +83,19 @@ function keyUpHandler(event){
   };
 };
 
+function drawScore() {
+  context.font = "30px Arial";
+  context.fillStyle = "#000000";
+  context.fillText(`Score: ${score}`, 10, 40);
+};
+
 // 4. Pálya megrajzolása:
 
  function draw(){
   context.clearRect(0, 0, canvas.width, canvas.height); // ettől nem mosódik el a pingvin miközbe megy.
   drawPinguinL();
   drawFish();
+  drawScore();
 
   fishY -= fy; // hal mozgásának sebessége
  
@@ -103,10 +113,14 @@ function keyUpHandler(event){
 
  // elkapta / nem kapta el vizsgálása: 
  
+ // itt még picit lehet finomítani
       if(( (fishX-pinguinX) < (pinguinSizeX/2)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) && ((fishY-120) === pinguinY)){
-        console.log("elkapta")
+        console.log("elkapta");
+        score= score+1;
       }else if (fishY===1200){
-      console.log("vége")
+        alert("GAME OVER");
+         document.location.reload();
+         clearInterval(interval);
       }
  };
 
