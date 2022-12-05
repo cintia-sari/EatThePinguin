@@ -104,19 +104,19 @@ function game(){
 drawFish();
 fishY -= fy; // hal mozgásának sebessége
 
-
-
- if(( (fishX-pinguinX) < (pinguinSizeX)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) && ((fishY) === pinguinY)){
+console.log(fishY > pinguinY && fishY <1100 );
+ if(( (fishX-pinguinX) < (pinguinSizeX)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) &&(fishY > pinguinY && fishY <1100 )){
   score= score+1;
   fishX = Math.random()*900;
   fishY = 0;
+  fy = fy-0.5;
 }else if (fishY > canvas.height){
   isGameOver=true;
 };
 
 function reset(){
   isGameOver=false;
-  score=0;
+  score = 0;
   fishX = Math.random()*900;
   fishY = 0;
 }
@@ -129,7 +129,7 @@ function draw(){
   if (rightPressed) {
     pinguinX = Math.min( pinguinX+7,canvasWidth+300);
   } else if (leftPressed){
-    pinguinX = Math.max( pinguinX-7, 0);
+    pinguinX = Math.max( pinguinX-7, 0);// itt folytatni
   };
 
   if(!isGameOver){
