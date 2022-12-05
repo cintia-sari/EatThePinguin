@@ -13,7 +13,7 @@ let canvasWidth = 500 ; //jétkterület szélessége
 // 1.2 Pingvin 
 let pinguinSizeX=200;
 let pinguinSizeY=160;
-let pinguinY = 800;
+let pinguinY = 1000;
 let pinguinX = ((canvasWidth+250 )/2); // pinvin kiindulási pontja
 let rightPressed = false ; // pingvin mozgatás ,jobb oldali gombnyomás
 let leftPressed = false; // pingvin mozgatás ,jobb oldali gombnyomás. Az alapértelmezett érték mindkettőnél azért van, falsemert az elején nem nyomják meg a vezérlőgombokat.
@@ -32,24 +32,21 @@ let fy = -2; // hal mozgása az y tengelyen kiinduló pont
 // 1.4 eredmény
 let score=0;
 let isGameOver= false;
+let keyDownRight= true;
 // 2. elemek megrajzolása
 
 // 2.1 pingvin megrajzolás
 
-function drawPinguinR (){
+function drawPinguin (){
   let base_image = new Image();
+  if(keyDownRight){
   base_image.src = "./picture/rightPinguin.png";
-   context.drawImage(base_image, pinguinX, pinguinY,1000,1000);
+  } else{
+    base_image.src = "./picture/leftPinguin.png";
+  }
 
-};
-
-function drawPinguinL(){ //itt még hozzá kell adnom a HTMl-hez a másik oldalra dölő pingvint
-  let base_image = new Image();
-  base_image.src = "./picture/leftPinguin.png";
-   context.drawImage(base_image, pinguinX, 1000,pinguinSizeX,pinguinSizeY);
+  context.drawImage(base_image, pinguinX, pinguinY,pinguinSizeX,pinguinSizeY);
 }
-
-
 // 2.2  Hal rajzolás
 
 function drawFish(){ 
@@ -71,8 +68,10 @@ window.addEventListener("keyup", keyUpHandler, false); // Amikor a billentyűzet
 function keyDownHandler(event) {
   if (event.key == "Right" || event.key == "ArrowRight" || event.which === "39"){
     rightPressed = true;
+    keyDownRight = true;
   } else if ( event.key == "Left" || event.key == "ArrowLeft" || event.which === "17"){
     leftPressed = true;
+    keyDownRight = false;
   }
 };
 
@@ -83,6 +82,8 @@ function keyUpHandler(event){
     leftPressed = false;
   };
 };
+
+// Játék elemek
 
 function drawScore() {
   context.font = "30px Arial";
@@ -104,8 +105,7 @@ drawFish();
 fishY -= fy; // hal mozgásának sebessége
 
  // itt még picit lehet finomítani
- if(( (fishX-pinguinX) < (pinguinSizeX/2)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) && ((fishY-120) === pinguinY)){
-  console.log("elkapta");
+ if(( (fishX-pinguinX) < (pinguinSizeX/2)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) && ((fishY) === pinguinY)){
   score= score+1;
   fishX = Math.random()*900;
   fishY = 0;
@@ -133,7 +133,7 @@ function draw(){
 
   if(!isGameOver){
     context.clearRect(0, 0, canvas.width, canvas.height); // ettől nem mosódik el a pingvin miközbe megy.
-    drawPinguinL();
+    drawPinguin();
     drawScore();
     game();
   }else{
