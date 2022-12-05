@@ -31,6 +31,7 @@ let fy = -2; // hal mozgása az y tengelyen kiinduló pont
 
 // 1.4 eredmény
 let score=0;
+let isGameOver= false;
 // 2. elemek megrajzolása
 
 // 2.1 pingvin megrajzolás
@@ -89,41 +90,56 @@ function drawScore() {
   context.fillText(`Score: ${score}`, 10, 40);
 };
 
-// 4. Pálya megrajzolása:
+function GameOver(){
+  //alert("GAME OVER");
+ // document.location.reload();
+  //clearInterval(interval);
+  context.font = "90px Arial";
+  context.fillStyle = "#000000";
+  context.fillText(`Game Over, Score: ${score}`,90,500);
+};
 
- function draw(){
-  context.clearRect(0, 0, canvas.width, canvas.height); // ettől nem mosódik el a pingvin miközbe megy.
-  drawPinguinL();
-  drawFish();
-  drawScore();
+function game(){
+drawFish();
+fishY -= fy; // hal mozgásának sebessége
 
-  fishY -= fy; // hal mozgásának sebessége
- 
-
-     // jobbra / balra gomb megnyomásakkor mennyivel menjen odébb a pingvin az x tengelyen
-      if (rightPressed) {
-        pinguinX = Math.min( pinguinX+7,canvasWidth+300);
-      } else if (leftPressed){
-        pinguinX = Math.max( pinguinX-7, 0);
-      };
-
-
-
-
-
- // elkapta / nem kapta el vizsgálása: 
- 
  // itt még picit lehet finomítani
-      if(( (fishX-pinguinX) < (pinguinSizeX/2)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) && ((fishY-120) === pinguinY)){
-        console.log("elkapta");
-        score= score+1;
-      }else if (fishY===1200){
-        alert("GAME OVER");
-         document.location.reload();
-         clearInterval(interval);
-      }
- };
+ if(( (fishX-pinguinX) < (pinguinSizeX/2)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) && ((fishY-120) === pinguinY)){
+  console.log("elkapta");
+  score= score+1;
+  fishX = Math.random()*900;
+  fishY = 0;
+}else if (fishY > canvas.height){
+  isGameOver=true;
+};
+
+function reset(){
+  isGameOver=false;
+  score=0;
+  fishX = Math.random()*900;
+  fishY = 0;
+}
 
 
+};
+
+function draw(){
+  // jobbra / balra gomb megnyomásakkor mennyivel menjen odébb a pingvin az x tengelyen
+  if (rightPressed) {
+    pinguinX = Math.min( pinguinX+7,canvasWidth+300);
+  } else if (leftPressed){
+    pinguinX = Math.max( pinguinX-7, 0);
+  };
+
+  if(!isGameOver){
+    context.clearRect(0, 0, canvas.width, canvas.height); // ettől nem mosódik el a pingvin miközbe megy.
+    drawPinguinL();
+    drawScore();
+    game();
+  }else{
+    GameOver();
+    reset();
+  }
+};
 
 const interval = setInterval(draw, 10);
