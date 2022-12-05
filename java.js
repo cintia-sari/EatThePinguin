@@ -104,8 +104,9 @@ function game(){
 drawFish();
 fishY -= fy; // hal mozgásának sebessége
 
- // itt még picit lehet finomítani
- if(( (fishX-pinguinX) < (pinguinSizeX/2)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) && ((fishY) === pinguinY)){
+
+
+ if(( (fishX-pinguinX) < (pinguinSizeX)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) && ((fishY) === pinguinY)){
   score= score+1;
   fishX = Math.random()*900;
   fishY = 0;
