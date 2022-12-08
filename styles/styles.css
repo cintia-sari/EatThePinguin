@@ -1,4 +1,29 @@
-*{
+html{
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    resize: none;
+    scroll-behavior: smooth;
+    min-width: 500px;
+} 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    user-select:none;
+    font-size:1rem;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --btn-background : rgb(0, 200, 255);
+    --btb-border-text :rgb(5, 92, 116);
+    --btn-hover: rgb(123, 226, 255);
+}
+
+
+body{
     background-image: url(../picture/background.png);
     background-size: 100% 100%;
 
@@ -10,16 +35,55 @@ canvas {
    background-image: url(../picture/play-background.png);
    background-position: 20% 100%;
    background-size: 100% 100%;
+   margin-bottom: 20px;
 }
 
 .canvasDiv{
     display: flex;
-    justify-content: center;
-   background-color: rgb(61, 58, 58);
-  
+    justify-content: center;  
 }
-
 .picture {
     display: none;
 }
 
+.btn-div{
+    display: flex;
+    justify-content: center; 
+}
+
+.btn {
+    background-color: var(--btn-background);
+    border:3.5px solid var(--btb-border-text);
+    color: var(--btb-border-text);
+    font-size: 20px ;
+    height: 50px;
+    width: 120px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content:space-around;
+    padding:0px 10px 0px 10px;
+    margin:20px;
+    cursor: pointer;
+
+}
+
+img{
+    height: 40px;
+}
+ 
+.btn:hover{
+    background-color: var(--btn-hover);
+}
+
+.svg-i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content:space-around;
+    margin-top:25px;
+    cursor: pointer;
+    height: 50px;
+
+}
