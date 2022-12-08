@@ -96,19 +96,21 @@ function keyUpHandler(event){
 
 // 4.1 eredmény kiiratása
 function drawScore() {
-  context.font = "30px Arial";
-  context.fillStyle = "#000000";
-  context.fillText(`Score: ${score}`, 10, 40);
+  context.font = "50px Arial";
+  context.fillStyle = "#545454";
+  context.fillText(`Score: ${score}`, 10, 60);
 };
 
 //4.2 Jéték végén való szöveg kiiratása
 function GameOver(){
   context.font = "90px Arial";
-  context.fillStyle = "#000000";
-  context.fillText(`Game Over`,240,(canvas.height/2)-80);
-  context.fillText(`Score: ${score}`,310,canvas.height/2);
+  context.fillStyle = "#467693";
+  context.fillText(`Game Over`,240,(canvas.height/2)-130);
+  context.fillStyle = "#FA5858"
+  context.fillText(`Score: ${score}`,320,canvas.height/2);
   context.font = "40px Arial";
-  context.fillText(`If you want to play one more time, press thye Enter.`,40, 700)
+  context.fillStyle = "#545454"
+  context.fillText(`If you want to play one more time, press the Enter.`,40, 700)
 };
 
 // 4.3 Játék újratöltése
