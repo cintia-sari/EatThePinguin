@@ -1,0 +1,29 @@
+html{
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    resize: none;
+    scroll-behavior: smooth;
+    min-width: 500px;
+} 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    user-select:none;
+    font-size:1rem;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --btn-background : rgb(0, 200, 255);
+    --btb-border-text :rgb(5, 92, 116);
+    --btn-hover: rgb(123, 226, 255);
+}
+
+body{
+    background-image: url(../picture/background.jpg);
+   
+
+}
