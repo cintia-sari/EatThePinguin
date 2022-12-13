@@ -24,6 +24,32 @@ html{
 
 body{
     background-image: url(../picture/background.jpg);
-   
+}
 
+main {
+    display: flex;
+    justify-content: center;
+
+}
+
+main .play{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--btn-background);
+    border-radius:10px ;
+    width: 250px;
+    box-shadow: 8px 10px 10px #000000;
+    
+}
+
+main .play h3 {
+    display: flex;
+    justify-content:center;
+    padding: 10px;
+    color: var(--btb-border-text);
+    font-size: 1.5rem;
+}
+main .play img{
+    
+    
 }
