@@ -10,8 +10,8 @@ html{
 * {
     margin: 0;
     padding: 0;
-    box-sizing:border-box;
     user-select:none;
+    box-sizing:border-box;
     font-size:1rem;
     scroll-behavior: smooth;
 }
@@ -26,10 +26,22 @@ body{
     background-image: url(../picture/background.jpg);
 }
 
+header{
+    display: flex;
+    justify-content: center;
+    margin: 5rem 0;
+}
+
+header h1 {
+    color: var(--btb-border-text);
+    font-size: 5rem;
+
+}
+
 main {
     display: flex;
     justify-content: center;
-
+    margin: 5rem 2rem 8rem;
 }
 
 main .play{
