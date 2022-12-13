@@ -38,8 +38,19 @@ canvas {
 
 .canvasDiv{
     display: flex;
-    justify-content: center;  
+    justify-content: center;
 }
+
+.canvasDiv2 {
+    position:relative;  
+
+}
+.canvasDiv img {
+position: absolute;
+top: -1rem;
+right: 0rem;
+}
+
 .picture {
     display: none;
 }
