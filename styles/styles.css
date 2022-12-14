@@ -33,16 +33,20 @@ canvas {
    background-image: url(../picture/play-background.png);
    background-position: 20% 100%;
    background-size: 100% 100%;
-   margin-bottom: 20px;
 }
 
 .canvasDiv{
     display: flex;
     justify-content: center;
+    margin-bottom: 10rem;
 }
 
 .canvasDiv2 {
     position:relative;  
+    border: 0.5rem solid var(--btb-border-text);
+    border-radius: 10px;
+    height: 616px;
+
 
 }
 .canvasDiv img {
@@ -94,5 +98,36 @@ img{
     margin-top:25px;
     cursor: pointer;
     height: 50px;
+    z-index: 1;
+}
 
+.svg-i:hover ~ .info-box{
+    visibility: visible;
+}
+
+.info-box{
+    visibility: hidden;
+    position: absolute;
+    color: var(--btb-border-text);
+    background-color: rgba(123, 226, 255,0.9);
+    border-radius: 10px;
+    padding: 1rem;
+    top:0rem;
+}
+
+.info-box h3{
+    font-size: 1.4rem;
+    padding: 0.4rem 0;
+}
+
+.info-box h4 {
+    padding: .5rem 0;
+    margin-left: 2rem;
+    font-size: 1.1rem;
+
+}
+
+.info-box h4 ul li {
+    margin-left: 1rem;
+    font-size: 1.1rem;
 }
