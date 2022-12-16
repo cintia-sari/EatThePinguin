@@ -38,13 +38,13 @@ header h1 {
 
 }
 
-main {
+main  {
     display: flex;
     justify-content: center;
     margin: 5rem 2rem 8rem;
 }
 
-main .play{
+main .play {
     display: flex;
     flex-direction: column;
     background-color: var(--btn-background);
@@ -60,13 +60,20 @@ main .play:hover{
     cursor: pointer;
 }
 
-main .play h3 {
+main .play  h3 {
     display: flex;
     justify-content:center;
     padding: 10px;
     color: var(--btb-border-text);
     font-size: 1.5rem;
 }
-main .play h3:hover {
+
+main .play  h3:link{
+    text-decoration: none;
+
+}
+
+
+main .play  h3:hover {
     font-size: 1.55rem;
 }

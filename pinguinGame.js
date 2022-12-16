@@ -121,6 +121,7 @@ function reset(){
   };
 };
 
+
 // 4.4 Mi történjen, ha elkapja vagy nem kapja el a pingvin a halat.
 function game(){
 drawFish();
@@ -142,6 +143,7 @@ fishY -= fy; // hal mozgásának sebessége
 
 // 5. játék menete
 function draw(){
+
   // jobbra / balra gomb megnyomásakkor mennyivel menjen odébb a pingvin az x tengelyen
   if (rightPressed) {
     pinguinX = Math.min( pinguinX+px,canvasWidth+300);
@@ -159,6 +161,8 @@ function draw(){
    reset();
   }
 };
+
+
 
 
 const interval = setInterval(draw, 10); // milyen időközönként töltse újra a set interval a draw függvényt. Ettől látszik úgy mintha tényelg mozognának az elemek.

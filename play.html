@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
-    <title>Játék</title>
+    <title>Pinguin Game</title>
 
 </head>
 <body>
@@ -24,7 +24,9 @@
 />
   <img src="./picture/fish.png" alt="fish" class="picture" width="30">
   <div class="btn-div">
-    <button class="btn" ><img class="svg" src="./icons/back.svg" alt="back-arrow"> Back </button>
+    <a href="./index.html">
+      <button class="btn" ><img class="svg" src="./icons/back.svg" alt="back-arrow">Back </button>
+    </a>
   </div>
 
   
@@ -33,14 +35,14 @@
     <div class="canvasDiv2"><img class="svg-i" src="./icons/info.svg" alt="">
     <canvas id="viewport"> </canvas>
     <div class="info-box">
-      <h3> Játék menete:</h3>
-      <h4>Kapd el a fentről érkező halakat, de vigyáz mivel minden egyes körben te is és a halak is egyre gyorsabbak lesztek.</h4>
-      <h3>Irányítás:</h3>
+      <h3> Game description:</h3>
+      <h4>Catch the fish coming from above, but be careful because with each round you and the fish will get faster and faster.</h4>
+      <h3>Control:</h3>
       <h4>
         <ul>
-          <li>jobbra nyíl: jobbra megy a pingvin</li>
-          <li>balra nyíl: balra megy a pingvin</li>
-          <li>enter: játék végén újrakezdés.</li>
+          <li>right arrow: the penguin goes right</li>
+          <li>left arrow: the penguin goes left</li>
+          <li>enter: restart at the end of the game</li>
       </ul>
     </h4>
     </div>
