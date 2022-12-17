@@ -4,38 +4,40 @@ canvas.setAttribute("width", "1000"),
 canvas.setAttribute("height", "1200"),
   context = canvas.getContext("2d");
 
-// 1. Alap adatok
+// 1. Basic Data
 
-// 1.1 Pálya 
-let canvasWidth = 500 ; //jétkterület szélessége
+// 1.1 game field 
+let canvasWidth = 500 ; //game fiel widht
 
-// 1.2 Pingvin 
+// 1.2 Pinguin datas
 let pinguinSizeX=200;
 let pinguinSizeY=160;
 let pinguinY = 1000;
-let pinguinX = ((canvasWidth+250 )/2); // pinvin kiindulási pontja
-let rightPressed = false ; // pingvin mozgatás ,jobb oldali gombnyomás
-let leftPressed = false; // pingvin mozgatás ,jobb oldali gombnyomás. Az alapértelmezett érték mindkettőnél azért van, falsemert az elején nem nyomják meg a vezérlőgombokat.
-let px =3; //pingvin mozgásának sebessége az x tengelyen
+let pinguinX = ((canvasWidth+250 )/2); // pinvin standpingvin mozgatás ,jobb oldali gombnyomásing point
+let rightPressed = false ; // penguin movement, right button press
+let leftPressed = false; // penguin movement, left button press. The default value for both is because the control buttons are not pressed at the beginning.
+let px =3; //speed of penguin movement on the x-axis
 
-// 1.3 halacska adatok
+// 1.3 fish datas
 
-let fishSizeX =100; // hal méret az x tengelyen
-let fishSizeY = 70;// hal méret az y tengelyen
-let fishX = Math.random()*900; // képernyőn hol helyzekedjen el az x tengelyen méret max 900;
-let fishY =0; //// képernyőn hol helyzekedjen el az y tengelyen méret max 1190 min-60;
-let fx = 0; // hal mozgásának sebessége az x tengelyen
-let fy = -2; // hal mozgásának sebessége az y tengelyen
+let fishSizeX =100; // fish size on the x-axis
+let fishSizeY = 70;// fish size on the y-axis
+let fishX = Math.random()*900; // on the screen, where should the fish be located on the x axis, size max 900;
+let fishY =0; // on the screen, where should it be located on the y axis, size max 1190 min-60;
+let fx = 0; // speed of fish movement on the x-axis
+let fy = -2; // speed of fish movement on the y-axis
 
 
-// 1.4 eredmény
+// 1.4 result
 let score=0;
 let isGameOver= false;
-let keyDownRight= true; // pingvin jobbra balra kép váltásához
-let enterPressed= false; // ha vége a játéknak az enterrel tudja újra tölteni.
-// 2. elemek megrajzolása
+let keyDownRight= true; // right to left looking penguin alternation
+let enterPressed= false; // when the game is over, you can load it again with enter.
 
-// 2.1 pingvin megrajzolás
+// 2. drawing elements
+
+
+// 2.1 Penguin drawing
 
 function drawPinguin (){
   let base_image = new Image();
@@ -47,7 +49,7 @@ function drawPinguin (){
 
   context.drawImage(base_image, pinguinX, pinguinY,pinguinSizeX,pinguinSizeY);
 }
-// 2.2  Hal rajzolás
+// 2.2 Fish drawing
 
 function drawFish(){ 
   let fish_image = new Image();
@@ -55,17 +57,11 @@ function drawFish(){
    context.drawImage(fish_image, fishX, fishY,fishSizeX,fishSizeY);
 };
 
+// 3. Event monitors
 
+window.addEventListener("keydown", keyDownHandler, false); //When the keyboard is pressed
 
-
-// 3. Eseményfigyelők
-
-
-window.addEventListener("keydown", keyDownHandler, false); //Amikor a billentyűzet lenyomódik
-
-window.addEventListener("keyup", keyUpHandler, false); // Amikor a billentyűzet lenyomása megszűnik
-
-
+window.addEventListener("keyup", keyUpHandler, false); // When the keyboard stops being pressed
 
 function keyDownHandler(event) {
   if (event.key == "Right" || event.key == "ArrowRight" || event.which === "39"){
@@ -89,19 +85,16 @@ function keyUpHandler(event){
   };
 };
 
+// 4. Other functions belonging to the game
 
-
-
-// 4. Játékhoz tartozó egyébb függvéyek
-
-// 4.1 eredmény kiiratása
+// 4.1 printout of result
 function drawScore() {
   context.font = "50px Cooper black";
   context.fillStyle = "#055C74";
   context.fillText(`Score: ${score}`, 10, 60);
 };
 
-//4.2 Jéték végén való szöveg kiiratása
+//4.2 Write out the text at the end of the game
 function GameOver(){
   context.font = "90px Cooper black";
   context.fillStyle = "#055C74";
@@ -113,7 +106,7 @@ function GameOver(){
   context.fillText(`If you want to play one more time, press the Enter.`,40, 700)
 };
 
-// 4.3 Játék újratöltése
+// 4.3 Reload game
 function reset(){
   if (enterPressed){
     document.location.reload();
@@ -122,18 +115,18 @@ function reset(){
 };
 
 
-// 4.4 Mi történjen, ha elkapja vagy nem kapja el a pingvin a halat.
+// 4.4 What should happen if the penguin catches or does not catch the fish.
 function game(){
 drawFish();
-fishY -= fy; // hal mozgásának sebessége
+fishY -= fy; // speed of fish movement
 
- if(( (fishX-pinguinX) < (pinguinSizeX)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) &&(fishY > pinguinY && fishY <1100 )){ //amikor a pingvin és a hal találkozik
+ if(( (fishX-pinguinX) < (pinguinSizeX)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) &&(fishY > pinguinY && fishY <1100 )){ //when the penguin and the fish meet
   score= score+1;
   fishX = Math.random()*900;
   fishY = 0;
-  fy = fy-0.5; //ennyivel gyorsul a hal körönként
-  px = px+0.5; // ennyivel gyorsul a pingvin körönként
-}else if (fishY > canvas.height){ //mikor a pingvin elveszit a halat
+  fy = fy-0.5; // this is how much the fish accelerates per round
+  px = px+0.5; // this is how much the penguin accelerates per round
+}else if (fishY > canvas.height){ // when the penguin loses the fish
   isGameOver=true;
 };
 };
@@ -141,18 +134,18 @@ fishY -= fy; // hal mozgásának sebessége
 
 
 
-// 5. játék menete
+// 5. game progress
 function draw(){
 
-  // jobbra / balra gomb megnyomásakkor mennyivel menjen odébb a pingvin az x tengelyen
+  // when pressing the right / left button, how far the penguin should go on the x-axis
   if (rightPressed) {
     pinguinX = Math.min( pinguinX+px,canvasWidth+300);
   } else if (leftPressed){
-    pinguinX = Math.max( pinguinX-(px), 0);// itt folytatni
+    pinguinX = Math.max( pinguinX-(px), 0);
   };
 
   if(!isGameOver){
-    context.clearRect(0, 0, canvas.width, canvas.height); // ettől nem mosódik el a pingvin és a hal miközbe megy.
+    context.clearRect(0, 0, canvas.width, canvas.height); // this does not wash away the penguin and the fish.
     drawPinguin();
     drawScore();
     game();
@@ -165,4 +158,4 @@ function draw(){
 
 
 
-const interval = setInterval(draw, 10); // milyen időközönként töltse újra a set interval a draw függvényt. Ettől látszik úgy mintha tényelg mozognának az elemek.
+const interval = setInterval(draw, 10); // at what intervals set interval reload the draw function. This makes it look like the elements are actually moving.
