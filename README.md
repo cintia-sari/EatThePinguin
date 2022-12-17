@@ -1,2 +1,2 @@
-# Eat The pinguin
+# Eat The Pinguin
 
