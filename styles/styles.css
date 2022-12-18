@@ -132,3 +132,10 @@ img{
     margin-left: 1rem;
     font-size: 1.1rem;
 }
+
+.restart-btn{
+    visibility: hidden;
+    position: absolute;
+    top:310px;
+    right: 35%
+}

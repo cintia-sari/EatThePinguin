@@ -1,24 +1,24 @@
 
-var canvas = document.getElementById("viewport");
+let canvas = document.querySelector("#viewport");
 canvas.setAttribute("width", "1000"),
 canvas.setAttribute("height", "1200"),
   context = canvas.getContext("2d");
 
-// 1. Basic Data
+// 1. Basic settings
 
 // 1.1 game field 
 let canvasWidth = 500 ; //game fiel widht
 
-// 1.2 Pinguin datas
+// 1.2 Pinguin settings
 let pinguinSizeX=200;
 let pinguinSizeY=160;
 let pinguinY = 1000;
-let pinguinX = ((canvasWidth+250 )/2); // pinvin standpingvin mozgatás ,jobb oldali gombnyomásing point
+let pinguinX = ((canvasWidth+250 )/2); // penguin's starting point
 let rightPressed = false ; // penguin movement, right button press
 let leftPressed = false; // penguin movement, left button press. The default value for both is because the control buttons are not pressed at the beginning.
 let px =3; //speed of penguin movement on the x-axis
 
-// 1.3 fish datas
+// 1.3 fish settings
 
 let fishSizeX =100; // fish size on the x-axis
 let fishSizeY = 70;// fish size on the y-axis
@@ -32,7 +32,7 @@ let fy = -2; // speed of fish movement on the y-axis
 let score=0;
 let isGameOver= false;
 let keyDownRight= true; // right to left looking penguin alternation
-let enterPressed= false; // when the game is over, you can load it again with enter.
+let clickPressed= false; // when the game is over, you can load it again with enter.
 
 // 2. drawing elements
 
@@ -64,24 +64,21 @@ window.addEventListener("keydown", keyDownHandler, false); //When the keyboard i
 window.addEventListener("keyup", keyUpHandler, false); // When the keyboard stops being pressed
 
 function keyDownHandler(event) {
-  if (event.key == "Right" || event.key == "ArrowRight" || event.which === "39"){
+  if (event.key === "Right" || event.key === "ArrowRight" || event.which === "39"){
     rightPressed = true;
     keyDownRight = true;
-  } else if ( event.key == "Left" || event.key == "ArrowLeft" || event.which === "17"){
+  } else if ( event.key === "Left" || event.key === "ArrowLeft" || event.which === "17"){
     leftPressed = true;
     keyDownRight = false;
-  }  else if (event.key === "Enter"){
-    enterPressed = true;
   };
 };
+
 
 function keyUpHandler(event){
   if (event.key === "Right" || event.key == "ArrowRight" || event.which === "39"){
     rightPressed = false;
   } else if (event.key === "Left" ||event.key == "ArrowLeft" || event.which === "17"){
     leftPressed = false;
-  } else if (event.key === "Enter"){
-    enterPressed = false;
   };
 };
 
@@ -101,14 +98,24 @@ function GameOver(){
   context.fillText(`Game Over`,240,(canvas.height/2)-130);
   context.fillStyle = "#FA5858"
   context.fillText(`Score: ${score}`,320,canvas.height/2);
-  context.font = "35px Cooper black";
-  context.fillStyle = "#055C74"
-  context.fillText(`If you want to play one more time, press the Enter.`,40, 700)
+  restartButton();
 };
 
-// 4.3 Reload game
+// 4.3 Restrart button
+function restartButton() {
+  document.querySelector(".restart-btn").style.visibility = "visible";
+  document.querySelector(".restart-btn").addEventListener("click", function buttonClicked(){
+    clickPressed= true;
+  });
+}
+
+
+
+
+
+// 4.4 Reload game
 function reset(){
-  if (enterPressed){
+  if (clickPressed){
     document.location.reload();
     clearInterval(interval);
   };
@@ -120,7 +127,7 @@ function game(){
 drawFish();
 fishY -= fy; // speed of fish movement
 
- if(( (fishX-pinguinX) < (pinguinSizeX)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) &&(fishY > pinguinY && fishY <1100 )){ //when the penguin and the fish meet
+ if(( (fishX-pinguinX) < (pinguinSizeX)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) &&((fishY+50) > pinguinY && fishY <1200 )){ //when the penguin and the fish meet
   score= score+1;
   fishX = Math.random()*900;
   fishY = 0;
