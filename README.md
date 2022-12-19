@@ -1,11 +1,10 @@
 # Eat The Pinguin Game
 
- ## 1. Amiért hoztam létre ezt a programot.:
+ ## 1. Amiért létre hoztam ezt a programot.:
  ### Szerettem volna egy olyan programot írni amihez szükség van a canvas-ra. Érdekelt, hogy hogyan is lehet létrehozni egy olyan alap játékot amivel anno én is szívesem játszottam. Mivel ezelőtt egy mini projektem volt javaScriptben és a canvas-hoz semmit sem értettem úgy gondoltam ez elég nagy kihívás lesz nekem amit meg akarok lépni. Magában a js fájlban vannak részletesebb leírások amik akár kezdővel is megtudják értetni mi miért történik a program futása közben és miért is kell bele tenni.
 
  ## 2. program lényege.:
-### Lemérni kinek milyen gyors a reakció ideje
-
+### Az egyre gyorsuló játékban ki mennyi pontot képes szerezni ezzel tesztelve a reakció időt.
 ## 3. Játék leírás.:
  ### Kapd el a lehető legtöbb halat, de vigyázz hisz te is és a halak is egyre gyorsabb lesz. Ami tovább nehezíti a játékot az az, hogy szándékosan nincs benne több élet.
 ## Program leírás.:
