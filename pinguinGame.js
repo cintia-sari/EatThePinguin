@@ -22,10 +22,11 @@ let px =3; //speed of penguin movement on the x-axis
 
 let fishSizeX =100; // fish size on the x-axis
 let fishSizeY = 70;// fish size on the y-axis
-let fishX = Math.random()*900; // on the screen, where should the fish be located on the x axis, size max 900;
+let fishX = Math.random()*900; ; // on the screen, where should the fish be located on the x axis, size max 900;
 let fishY =0; // on the screen, where should it be located on the y axis, size max 1190 min-60;
 let fx = 0; // speed of fish movement on the x-axis
 let fy = -2; // speed of fish movement on the y-axis
+let latestfishX;
 
 
 // 1.4 result
@@ -109,10 +110,6 @@ function restartButton() {
   });
 }
 
-
-
-
-
 // 4.4 Reload game
 function reset(){
   if (clickPressed){
@@ -122,14 +119,15 @@ function reset(){
 };
 
 
-// 4.4 What should happen if the penguin catches or does not catch the fish.
+// 4.5 What should happen if the penguin catches or does not catch the fish.
 function game(){
 drawFish();
 fishY -= fy; // speed of fish movement
 
  if(( (fishX-pinguinX) < (pinguinSizeX)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) &&((fishY+50) > pinguinY && fishY <1200 )){ //when the penguin and the fish meet
   score= score+1;
-  fishX = Math.random()*900;
+  fishX=fishXCordinate();
+  console.log(fishX);
   fishY = 0;
   fy = fy-0.5; // this is how much the fish accelerates per round
   px = px+0.5; // this is how much the penguin accelerates per round
@@ -138,7 +136,15 @@ fishY -= fy; // speed of fish movement
 };
 };
 
-
+// 4.6 do not let the fish appear there or in its immediate vicinity
+function fishXCordinate(){  
+  do{
+   fishX = Math.random()*900;
+  }
+  while(latestfishX-fishX > -200 && latestfishX-fishX < +200);
+latestfishX=fishX; 
+ return fishX;
+};
 
 
 // 5. game progress
