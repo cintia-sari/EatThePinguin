@@ -1,4 +1,4 @@
-
+// 0. canvas setting
 let canvas = document.querySelector("#viewport");
 canvas.setAttribute("width", "1000"),
 canvas.setAttribute("height", "1200"),
@@ -19,7 +19,6 @@ let leftPressed = false; // penguin movement, left button press. The default val
 let px =3; //speed of penguin movement on the x-axis
 
 // 1.3 fish settings
-
 let fishSizeX =100; // fish size on the x-axis
 let fishSizeY = 70;// fish size on the y-axis
 let fishX = Math.random()*900; ; // on the screen, where should the fish be located on the x axis, size max 900;
@@ -27,7 +26,6 @@ let fishY =0; // on the screen, where should it be located on the y axis, size m
 let fx = 0; // speed of fish movement on the x-axis
 let fy = -2; // speed of fish movement on the y-axis
 let latestfishX;
-
 
 // 1.4 result
 let score=0;
@@ -37,9 +35,7 @@ let clickPressed= false; // when the game is over, you can load it again with en
 
 // 2. drawing elements
 
-
 // 2.1 Penguin drawing
-
 function drawPinguin (){
   let base_image = new Image();
   if(keyDownRight){
@@ -47,11 +43,9 @@ function drawPinguin (){
   } else{
     base_image.src = "./picture/leftPinguin.png";
   }
-
   context.drawImage(base_image, pinguinX, pinguinY,pinguinSizeX,pinguinSizeY);
 }
 // 2.2 Fish drawing
-
 function drawFish(){ 
   let fish_image = new Image();
   fish_image.src = "./picture/fish.png";
@@ -59,7 +53,6 @@ function drawFish(){
 };
 
 // 3. Event monitors
-
 window.addEventListener("keydown", keyDownHandler, false); //When the keyboard is pressed
 
 window.addEventListener("keyup", keyUpHandler, false); // When the keyboard stops being pressed
@@ -73,7 +66,6 @@ function keyDownHandler(event) {
     keyDownRight = false;
   };
 };
-
 
 function keyUpHandler(event){
   if (event.key === "Right" || event.key == "ArrowRight" || event.which === "39"){
@@ -127,7 +119,6 @@ fishY -= fy; // speed of fish movement
  if(( (fishX-pinguinX) < (pinguinSizeX)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) &&((fishY+50) > pinguinY && fishY <1200 )){ //when the penguin and the fish meet
   score= score+1;
   fishX=fishXCordinate();
-  console.log(fishX);
   fishY = 0;
   fy = fy-0.5; // this is how much the fish accelerates per round
   px = px+0.8; // this is how much the penguin accelerates per round
@@ -146,10 +137,8 @@ latestfishX=fishX;
  return fishX;
 };
 
-
 // 5. game progress
 function draw(){
-
   // when pressing the right / left button, how far the penguin should go on the x-axis
   if (rightPressed) {
     pinguinX = Math.min( pinguinX+px,canvasWidth+300);
@@ -167,8 +156,5 @@ function draw(){
    reset();
   }
 };
-
-
-
 
 const interval = setInterval(draw, 10); // at what intervals set interval reload the draw function. This makes it look like the elements are actually moving.
