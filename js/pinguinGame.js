@@ -130,7 +130,7 @@ fishY -= fy; // speed of fish movement
   console.log(fishX);
   fishY = 0;
   fy = fy-0.5; // this is how much the fish accelerates per round
-  px = px+0.5; // this is how much the penguin accelerates per round
+  px = px+0.8; // this is how much the penguin accelerates per round
 }else if (fishY > canvas.height){ // when the penguin loses the fish
   isGameOver=true;
 };
