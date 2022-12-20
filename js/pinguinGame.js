@@ -117,12 +117,14 @@ drawFish();
 fishY -= fy; // speed of fish movement
 
  if(( (fishX-pinguinX) < (pinguinSizeX)) && (-(pinguinSizeX/2)) <  (fishX-pinguinX) &&((fishY+50) > pinguinY && fishY <1200 )){ //when the penguin and the fish meet
+  new Audio ("../music/fish.wav").play();
   score= score+1;
   fishX=fishXCordinate();
   fishY = 0;
   fy = fy-0.5; // this is how much the fish accelerates per round
   px = px+0.8; // this is how much the penguin accelerates per round
 }else if (fishY > canvas.height){ // when the penguin loses the fish
+  new Audio ("../music/game-over.wav").play();
   isGameOver=true;
 };
 };
