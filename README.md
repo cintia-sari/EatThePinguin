@@ -7,11 +7,11 @@ https://cintia-sari.github.io/EatThePinguin/index.html
 ## Why I wrote this website:
   I would like to write a program that requires the canvas. I was interested in how to create a basic game that I also liked to play back then. Since I had a mini-project in JavaScript before and I didn't understand anything about canvas, I thought it would be quite a challenge for me, which I want to take on. There are more detailed descriptions in the js file itself, which even a beginner can understand why what happens while the program is running and why it should be included.
 
- ## essence of the program:
+ ## Essence of the program:
    In this ever-accelerating game, who can score how many points by testing your reaction time.
 ## Game description:
     Catch as many fish as possible, but be careful because both you and the fish will get faster and faster. What makes the game even more difficult is that there are no more lives on purpose.
-## program description:
+## Program description:
 
 0. Canvas settings. (line 0-5)
 1. Basic settings.:
