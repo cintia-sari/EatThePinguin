@@ -10,7 +10,7 @@ https://cintia-sari.github.io/EatThePinguin/index.html
  ## Essence of the program:
    In this ever-accelerating game, who can score how many points by testing your reaction time.
 ## Game description:
-    Catch as many fish as possible, but be careful because both you and the fish will get faster and faster. What makes the game even more difficult is that there are no more lives on purpose.
+   Catch as many fish as possible, but be careful because both you and the fish will get faster and faster. What makes the game even more difficult is that there are no more lives on purpose.
 ## Program description:
 
 0. Canvas settings. (line 0-5)
