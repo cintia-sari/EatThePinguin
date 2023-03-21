@@ -2,7 +2,7 @@
 let canvas = document.querySelector("#viewport");
 canvas.setAttribute("width", "1000"),
 canvas.setAttribute("height", "1200"),
-  context = canvas.getContext("2d");
+context = canvas.getContext("2d");
 
 // 1. Basic settings
 

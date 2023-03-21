@@ -1,4 +1,4 @@
-html{
+html {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -7,7 +7,7 @@ html{
     min-width: 500px;
 } 
 
-*{
+* {
     font-family: 'Cooper black';
     margin: 0;
     padding: 0;
@@ -23,8 +23,7 @@ html{
     --btn-hover: rgb(123, 226, 255);
 }
 
-
-body{
+body {
     background-image: url(../picture/background.jpg);
 }
 
@@ -36,7 +35,7 @@ canvas {
    background-size: 100% 100%;
 }
 
-.canvasDiv{
+.canvasDiv {
     display: flex;
     justify-content: center;
     margin-bottom: 10rem;
@@ -47,9 +46,8 @@ canvas {
     border: 0.5rem solid var(--btb-border-text);
     border-radius: 10px;
     height: 616px;
-
-
 }
+
 .canvasDiv img {
 position: absolute;
 top: -1rem;
@@ -60,7 +58,7 @@ right: 0rem;
     display: none;
 }
 
-.btn-div{
+.btn-div {
     display: flex;
     justify-content: center; 
 }
@@ -83,15 +81,15 @@ right: 0rem;
     text-decoration: none;
 }
 
-img{
+img {
     height: 40px;
 }
  
-.btn:hover{
+.btn:hover {
     background-color: var(--btn-hover);
 }
 
-.svg-i{
+.svg-i {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,11 +100,11 @@ img{
     z-index: 1;
 }
 
-.svg-i:hover ~ .info-box{
+.svg-i:hover ~ .info-box {
     visibility: visible;
 }
 
-.info-box{
+.info-box {
     visibility: hidden;
     position: absolute;
     color: var(--btb-border-text);
@@ -116,7 +114,7 @@ img{
     top:0rem;
 }
 
-.info-box h3{
+.info-box h3 {
     font-size: 1.4rem;
     padding: 0.4rem 0;
 }
@@ -133,7 +131,7 @@ img{
     font-size: 1.1rem;
 }
 
-.restart-btn{
+.restart-btn {
     visibility: hidden;
     position: absolute;
     top:310px;

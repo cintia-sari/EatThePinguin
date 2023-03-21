@@ -1,4 +1,4 @@
-html{
+html {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -23,11 +23,11 @@ html{
     --btn-hover: rgb(123, 226, 255);
 }
 
-body{
+body {
     background-image: url(../picture/background.jpg);
 }
 
-header{
+header {
     display: flex;
     justify-content: center;
     margin: 5rem 0;
@@ -36,7 +36,6 @@ header{
 header h1 {
     color: var(--btb-border-text);
     font-size: 5rem;
-
 }
 
 main  {
@@ -61,8 +60,6 @@ main div .play:hover{
     cursor: pointer;
     font-size: 1.4rem;
 }
-
-
 
 main .play {
     display: flex;

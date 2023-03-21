@@ -1,29 +1,33 @@
 # Eat The Pinguin Game
 
- ## 1. Amiért létre hoztam ezt a programot.:
- ### Szerettem volna egy olyan programot írni amihez szükség van a canvas-ra. Érdekelt, hogy hogyan is lehet létrehozni egy olyan alap játékot amivel anno én is szívesem játszottam. Mivel ezelőtt egy mini projektem volt javaScriptben és a canvas-hoz semmit sem értettem úgy gondoltam ez elég nagy kihívás lesz nekem amit meg akarok lépni. Magában a js fájlban vannak részletesebb leírások amik akár kezdővel is megtudják értetni mi miért történik a program futása közben és miért is kell bele tenni.
+## The website is available:
 
- ## 2. program lényege.:
-### Az egyre gyorsuló játékban ki mennyi pontot képes szerezni ezzel tesztelve a reakció időt.
-## 3. Játék leírás.:
- ### Kapd el a lehető legtöbb halat, de vigyázz hisz te is és a halak is egyre gyorsabb lesz. Ami tovább nehezíti a játékot az az, hogy szándékosan nincs benne több élet.
-## Program leírás.:
+https://cintia-sari.github.io/EatThePinguin/index.html
 
-0. Canvas beállításai. (0.-5. sor)
-1. Alap beállítások.:
-   * 1.1 játékmező beállítása. ( 10. sor) 
-   * 1.2 Pingvin beállításai. ( 13.-19. sor)
-   * 1.3 Hal beállításai. (22.-28. sor)
-   * 1.4 Eredmény/ játék állapot. (31.-34. sor)
-2. Figurák megrajzolása.:
-   * 2.1 Pingvin megrajzolása. (39.-47. sor)
-   * 2.2 Hal megrajzolása. (49.-53. sor)
-3. Esemény figyelők. (56.-76. sor)
-4. Egyéb függvények.:
-   * 4.1 Eredmény kiírása. (81.-85. sor)
-   * 4.2 Játék vége szövegek. (88.-95. sor)
-   * 4.3 Újrakezdő gomb. (98.-103. sor)
-   * 4.4 Játék újra töltése. (106.-111. sor)
-   * 4.5 Esemény figyelő függvény amit azt nézi, hogy el lette kapva a hal vagy sem és ennek alapján mi történjen a játékba.(115.-128. sor)
-   * 4.6 Hal beadásának x kordinátáját adja meg. (131.-138. sor)
-5. játék futása (142.-160 sor)
+## Why I wrote this website:
+  I would like to write a program that requires the canvas. I was interested in how to create a basic game that I also liked to play back then. Since I had a mini-project in JavaScript before and I didn't understand anything about canvas, I thought it would be quite a challenge for me, which I want to take on. There are more detailed descriptions in the js file itself, which even a beginner can understand why what happens while the program is running and why it should be included.
+
+ ## essence of the program:
+### In this ever-accelerating game, who can score how many points by testing your reaction time.
+## Game description:
+ ### Catch as many fish as possible, but be careful because both you and the fish will get faster and faster. What makes the game even more difficult is that there are no more lives on purpose.
+## program description:
+
+0. Canvas settings. (line 0-5)
+1. Basic settings.:
+   * 1.1 game field setup. (line 10)
+   * 1.2 Penguin settings. (lines 13-19)
+   * 1.3 Fish settings. (lines 22-28)
+   * 1.4 Result/game status. (lines 31-34)
+2. Drawing figures:
+   * 2.1 Drawing a penguin. (lines 39-47)
+   * 2.2 Drawing a fish. (lines 49-53)
+3. Event watchers. (lines 56-76)
+4. Other functions:
+   * 4.1 Listing of results. (lines 81-85)
+   * 4.2 End of game texts. (lines 88-95)
+   * 4.3 Restart button. (lines 98-103)
+   * 4.4 Reloading the game. (lines 106-111)
+   * 4.5 Event monitoring function that checks whether the fish has been caught or not and what should happen in the game based on this (lines 115-128)
+   * 4.6 Enter the x coordinate of the fish injection. (lines 131-138)
+Running game 5 (lines 142-160)
